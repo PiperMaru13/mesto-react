@@ -10,7 +10,7 @@ export default function EditProfilePopup(props) {
     React.useEffect(() => {
         setName(currentUser.name);
         setDescription(currentUser.about);
-    }, [currentUser]);
+    }, [currentUser, props.isOpen]);
 
     function handleChangeInput(e) {
         e.target.name === "username"
@@ -30,7 +30,7 @@ export default function EditProfilePopup(props) {
         <PopupWithForm
             name="editProfile"
             title="Редактировать профиль"
-            submitName={(props.onLoading) ? `Сохранение...` : `Сохранить`}
+            submitName={props.onLoading ? `Сохранение...` : `Сохранить`}
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmit}
@@ -42,8 +42,9 @@ export default function EditProfilePopup(props) {
                 name="username"
                 className="popup__input"
                 id="name"
-                placeholder="Модель фотоаппарата"
-                required=""
+                placeholder="Имя"
+                value={name}
+                required
                 onChange={handleChangeInput}
             />
             <span className="popup__input-error popup__input-error_username" />
@@ -53,9 +54,10 @@ export default function EditProfilePopup(props) {
                 type="text"
                 name="user-description"
                 className="popup__input"
-                placeholder="Название фотоальбома"
+                placeholder="О себе"
                 id="description"
-                required=""
+                value={description}
+                required
                 onChange={handleChangeInput}
             />
             <span className="popup__input-error popup__input-error_user-description" />

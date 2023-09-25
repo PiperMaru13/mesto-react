@@ -23,7 +23,7 @@ export default function AddPlacePopup(props) {
         <PopupWithForm
             name="cardPopup"
             title="Новая карточка"
-            submitName={(props.onLoading) ? `Отправка...` : `Отправить`}
+            submitName={props.onLoading ? `Отправка...` : `Отправить`}
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmit}
@@ -37,7 +37,7 @@ export default function AddPlacePopup(props) {
                 className="popup__input"
                 placeholder="Название"
                 onChange={handleChangeInput}
-                required=""
+                required
             />
             <span className="popup__input-error popup__input-error_card-name" />
             <input
@@ -47,7 +47,7 @@ export default function AddPlacePopup(props) {
                 className="popup__input"
                 placeholder="Ссылка на картинку"
                 onChange={handleChangeInput}
-                required=""
+                required
             />
             <span className="popup__input-error popup__input-error_card-link" />
         </PopupWithForm>

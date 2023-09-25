@@ -38,13 +38,13 @@ function App() {
         // Снова проверяем, есть ли уже лайк на этой карточке
         const isLiked = card.likes.some((i) => i._id === currentUser._id);
         // Отправляем запрос в API и получаем обновлённые данные карточки
-        (isLiked ? api.removeLike(card._id) : api.putLike(card._id)).then(
-            (newCard) => {
+        (isLiked ? api.removeLike(card._id) : api.putLike(card._id))
+            .then((newCard) => {
                 setCards((state) =>
                     state.map((c) => (c._id === card._id ? newCard : c))
                 );
-            }
-        );
+            })
+            .catch((err) => console.log(err));
     }
 
     function handleUpdateUser(userInfo) {
@@ -161,12 +161,6 @@ function App() {
                     onCardDelete={handleCardDelete}
                     onClose={closeAllPopups}
                 />
-                {/* <PopupWithForm
-                    name="confirmPopup"
-                    title="Вы уверены?"
-                    submitName="Да"
-                    onClose={closeAllPopups}
-                ></PopupWithForm> */}
                 <Footer />
             </div>
         </CurrentUserContext.Provider>

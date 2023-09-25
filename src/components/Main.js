@@ -1,5 +1,4 @@
 import React from "react";
-// import api from "../utils/Api.js";
 import editPic from "../images/edit.svg";
 import Card from "./Card.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
@@ -11,12 +10,9 @@ export default function Main(props) {
         <main className="content">
             <section className="profile">
                 <img
-                    style={{
-                        backgroundImage: `url(${currentUser.avatar})`,
-                        backgroundSize: "cover",
-                    }}
                     className="profile__avatar"
-                    alt=""
+                    src={currentUser.avatar}
+                    alt="Аватар пользователя"
                 />
                 <button
                     className="profile__edit-avatar"

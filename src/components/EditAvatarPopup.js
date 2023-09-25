@@ -24,7 +24,7 @@ export default function EditAvatarPopup(props) {
         <PopupWithForm
             name="avatarPopup"
             title="Обновить аватар"
-            submitName={(props.onLoading) ? `Сохранение...` : `Сохранить`}
+            submitName={props.onLoading ? `Сохранение...` : `Сохранить`}
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmitAvatar}
@@ -35,7 +35,7 @@ export default function EditAvatarPopup(props) {
                 id="avatar"
                 className="popup__input"
                 placeholder="Ссылка на новый аватар"
-                required=""
+                required
                 ref={avatarRef}
                 onChange={handleChangeAvatar}
             />
