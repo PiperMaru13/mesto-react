@@ -17,6 +17,7 @@ export default function Card(props) {
 
     function handleCardDelete() {
         props.onCardDelete(props.card);
+        props.onConfirm(true);
     }
 
     function handleCardLike() {
